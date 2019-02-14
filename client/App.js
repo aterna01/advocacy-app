@@ -54,107 +54,111 @@ class App extends Component {
         value: '',
         consent: false,
         sendMail: false,
-        consentInput: "",
+        consentInput: '',
         nutrition: {
-            food : {
-                question: "Do you need help eating, drinking, shopping or cooking?" ,
+            food: {
+                question:
+                    'Do you need help eating, drinking, shopping or cooking?',
                 agree: false
             },
             diet: {
-                question: "Do you need help maintaining a balanced diet?",
-                agree: false,
+                question: 'Do you need help maintaining a balanced diet?',
+                agree: false
             },
-            more: ""
+            more: ''
         },
         education: {
-            read : {
-                question: "Can you read?" ,
+            read: {
+                question: 'Can you read?',
                 agree: false
             },
             write: {
-                question: "Can you write?",
-                agree: false,
+                question: 'Can you write?',
+                agree: false
             },
-            more: ""
+            more: ''
         }
-    }
+    };
 
     toggleChange = (event, qs, section) => {
         const target = event.target;
-        const value = target.type === 'checkbox' ? target.checked : target.value;
-        const newSection = {...this.state[section][qs], agree:value}
+        const value =
+            target.type === 'checkbox' ? target.checked : target.value;
+        const newSection = { ...this.state[section][qs], agree: value };
         this.setState({
-            [section]: {...this.state[section], [qs]:newSection}
-        })
-    }
+            [section]: {
+                ...this.state[section],
+                [qs]: { ...this.state[section][qs], agree: value }
+            }
+        });
+    };
 
-    toggleChangeConsent = (event) => {
+    toggleChangeConsent = event => {
         const target = event.target;
-        const value = target.type === 'checkbox' ? target.checked : target.value;
+        const value =
+            target.type === 'checkbox' ? target.checked : target.value;
         this.setState({
             [target.name]: value
-        })
-    }
+        });
+    };
 
-    handleChangeInput = (el) => {
+    handleChangeInput = el => {
         const target = el.target;
-        const value = target.type === 'text' ?  null : target.value;
+        const value = target.type === 'text' ? null : target.value;
         this.setState({
             [target.name]: value
-        })
-    }
+        });
+    };
 
     handleSubmit = event => {
         event.preventDefault();
         // const { value } = this.state;
-        axios.post('/', this.state ).then(result => {
+        axios.post('/', this.state).then(result => {
             console.log(value);
         });
     };
 
     render() {
         return (
-
-        //             <div>
-        //                 <header className="App-header">
-        //                     <h1>The Advocacy Project</h1>
-        //                     <h2>Your voice. Your rights. Your choice.</h2>
-        //                 </header>
-        //                 <h2>Need help with day to day tasks?
-        //             See if you can get the help you need.</h2>
-        //                 <BeginButton/>
-        //                 <YourConsent
-        //                     consent={this.state.consent}
-        //                     sendMail={this.state.sendMail}
-        //                     handleChangeInput={this.handleChangeInput}
-        //                     handleSubmitInput={this.handleSubmitInput}/>
-        //                 <QuizOne
-        //                     info={this.state.nutrition}
-        //                     section="nutrition"
-        //                     handleChangeInput={this.handleChangeInput}
-        //                     toggleChange={this.toggleChange}/>
-        //                 <QuizTwo
-        //                     info={this.state.education}
-        //                     section="education"
-        //                     toggleChange={this.toggleChange}/>
-        //                 {/*<Switch>
-        //                     <Route exact path="/" component={Home} />
-        //                     <Route path="/list" component={List} />
-        //                     {' '}
-        //                 </Switch>*/}
-        //                 <form onSubmit={this.handleSubmit} method="POST" action="/">
-        //                     <label>
-        //                         Name:
-        //                         <input
-        //                             type="text"
-        //                             value={this.state.value}
-        //                             onChange={this.handleChange}
-        //                         />
-        //                     </label>
-        //                     <input type="submit" value="Submit" />
-        //                 </form>
-        //             </div>
-
+            //             <div>
+            //                 <header className="App-header">
+            //                     <h1>The Advocacy Project</h1>
+            //                     <h2>Your voice. Your rights. Your choice.</h2>
+            //                 </header>
+            //                 <h2>Need help with day to day tasks?
+            //             See if you can get the help you need.</h2>
+            //                 <BeginButton/>
+            //                 <YourConsent
+            //                     consent={this.state.consent}
+            //                     sendMail={this.state.sendMail}
+            //                     handleChangeInput={this.handleChangeInput}
+            //                     handleSubmitInput={this.handleSubmitInput}/>
+            //                 <QuizOne
+            //                     info={this.state.nutrition}
+            //                     section="nutrition"
+            //                     handleChangeInput={this.handleChangeInput}
+            //                     toggleChange={this.toggleChange}/>
+            //                 <QuizTwo
+            //                     info={this.state.education}
+            //                     section="education"
+            //                     toggleChange={this.toggleChange}/>
+            //                 {/*<Switch>
+            //                     <Route exact path="/" component={Home} />
+            //                     <Route path="/list" component={List} />
+            //                     {' '}
+            //                 </Switch>*/}
+            //                 <form onSubmit={this.handleSubmit} method="POST" action="/">
+            //                     <label>
+            //                         Name:
+            //                         <input
+            //                             type="text"
+            //                             value={this.state.value}
+            //                             onChange={this.handleChange}
+            //                         />
+            //                     </label>
+            //                     <input type="submit" value="Submit" />
+            //                 </form>
+            //             </div>
 
             <BrowserRouter>
                 <div>
@@ -162,21 +166,40 @@ class App extends Component {
                         <Route exact path="/" component={Home} />
                         <Route path="/help" component={Help} />
                         <Route path="/how" component={How} />
-                        <Route path="/initial-checks" component={InitialChecks}/>
+                        <Route
+                            path="/initial-checks"
+                            component={InitialChecks}
+                        />
                         <Route path="/consent" component={Consent} />
                         <Route path="/sorry" component={Sorry} />
                         <Route path="/contact" component={Contact} />
                         <Route path="/begin" component={Begin} />
-                        <Route path="/nutrition" component={Nutrition} />
+                        <Route
+                            path="/nutrition"
+                            component={props => (
+                                <Nutrition
+                                    info={this.state.nutrition}
+                                    section="nutrition"
+                                    handleChangeInput={this.handleChangeInput}
+                                    toggleChange={this.toggleChange}
+                                />
+                            )}
+                        />
                         <Route path="/hygiene" component={Hygiene} />
                         <Route path="/toilet" component={Toilet} />
                         <Route path="/clothing" component={Clothing} />
                         <Route path="/safety" component={Safety} />
                         <Route path="/environment" component={Environment} />
-                        <Route path="/relationships" component={Relationships}/>
+                        <Route
+                            path="/relationships"
+                            component={Relationships}
+                        />
                         <Route path="/work" component={Work} />
                         <Route path="/transport" component={Transport} />
-                        <Route path="/responsibilites" component={Responsibilities}/>
+                        <Route
+                            path="/responsibilites"
+                            component={Responsibilities}
+                        />
                         <Route path="/eligibility" component={Eligibility} />
                         <Route path="/wellbeing" component={Wellbeing} />
                         <Route path="/duty" component={Duty} />
@@ -194,9 +217,8 @@ class App extends Component {
                     </Switch>
                 </div>
             </BrowserRouter>
-
         );
     }
-};
+}
 
 export default App;
