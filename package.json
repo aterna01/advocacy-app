@@ -14,9 +14,8 @@
         "build": "parcel build ./client/index.html",
         "start": "node server/index.js",
         "scss": "node-sass --watch client/styles/scss -o client/styles/css",
-        "heroku-postbuild": "cd client && npm install && npm run build"
+        "heroku-postbuild": "parcel build client/index.html"
     },
-    "proxy": "http://localhost:5000",
     "babel": {
         "presets": [
             "@babel/preset-env",
