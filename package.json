@@ -3,6 +3,10 @@
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
+    "engines": {
+        "npm": "6.0.0",
+        "node": "10.12.0"
+    },
     "scripts": {
         "build-watch": "parcel watch ./client/index.html",
         "start-watch": "nodemon server/index.js",
