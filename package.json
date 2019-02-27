@@ -13,7 +13,6 @@
         "dev": "concurrently --kill-others \"npm run start-watch\" \"npm run build-watch\"",
         "build": "parcel build ./client/index.html",
         "start": "node server/index.js",
-        "scss": "dart-sass --watch client/styles/scss -o client/styles/css",
         "heroku-postbuild": "parcel build client/index.html"
     },
     "babel": {
@@ -39,8 +38,7 @@
         "eslint": "^4.19.1",
         "node-sass": "^4.11.0",
         "nodemon": "^1.18.10",
-        "parcel-bundler": "^1.11.0",
-        "sass": "^1.17.0"
+        "parcel-bundler": "^1.11.0"
     },
     "dependencies": {
         "axios": "^0.18.0",

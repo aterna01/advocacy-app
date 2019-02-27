@@ -1,24 +1,27 @@
 .navButtons {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly; }
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
 
 .buttons {
-  width: 25rem;
-  height: 8rem;
-  left: 108px;
-  top: 482px;
-  background: #132f58;
-  border-radius: 13px;
-  color: white;
-  font-size: 3rem; }
+    width: 25rem;
+    height: 8rem;
+    left: 108px;
+    top: 482px;
+    background: #132f58;
+    border-radius: 13px;
+    color: #f9f9f9;
+    font-size: 3rem;
+}
 
 .begin {
-  width: 35rem;
-  height: 8rem;
-  left: 45px;
-  background: #132f58;
-  border-radius: 13px;
-  font-size: 3rem;
-  color: white;
-  box-shadow: 6px 10px 5px #E5E5E5; }
+    width: 35rem;
+    height: 8rem;
+    left: 45px;
+    background: #132f58;
+    border-radius: 13px;
+    font-size: 3rem;
+    color: #f9f9f9;
+    box-shadow: 6px 10px 5px #e5e5e5;
+}
