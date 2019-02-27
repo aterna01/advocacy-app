@@ -1,30 +1,34 @@
 import React from 'react';
 import NavHeader from '../navigation/navHeader';
-import '../../styles/css/how.css';
+import '../../styles/css/styles.css';
 import { Link } from 'react-router-dom';
-import {Button} from '../buttons/Button';
+import { Button } from '../buttons/Button';
 
-function SorryChecks(){
-    return(
+function SorryChecks() {
+    return (
         <div id="outer-container">
             <NavHeader />
             <div className="wrapper">
                 <h1>Sorry!</h1>
-                <p>You need to be 18 years of age or older and a resident of Hackney in order to apply for support under the Care Act 2014.</p>
-
+                <p>
+                    You need to be 18 years of age or older and a resident of
+                    Hackney in order to apply for support under the Care Act
+                    2014.
+                </p>
 
                 <div className="navButtons">
-                    <Link to={'./initial-checks'} >
+                    <Link to={'./initial-checks'}>
                         <Button
-                            text='Back'
-                            type='submit'
+                            text="Back"
+                            type="submit"
                             className="buttons"
-                            onClick={() => {}}/>
+                            onClick={() => {}}
+                        />
                     </Link>
                 </div>
             </div>
         </div>
-    )
+    );
 }
 
 export default SorryChecks;

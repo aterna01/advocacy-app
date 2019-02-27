@@ -1,11 +1,18 @@
 import React from 'react';
-import { slide as Menu } from "react-burger-menu";
+import { slide as Menu } from 'react-burger-menu';
 import { Link } from 'react-router-dom';
-import {Button} from "../buttons/Button";
-import {Home, About, Care, Support, Key, Application, Advocacy} from '../../images/MenuImages';
+import { Button } from '../buttons/Button';
+import {
+    Home,
+    About,
+    Care,
+    Support,
+    Key,
+    Application,
+    Advocacy
+} from '../../images/MenuImages';
 
-
-import "../../styles/css/menustyle.css";
+import '../../styles/css/styles.css';
 
 export default props => {
     return (
@@ -18,10 +25,9 @@ export default props => {
                 <About />
                 <p className="menuText">About</p>
             </Link>
-            <Link to={'./care-act'} className="menu-item menuList" >
+            <Link to={'./care-act'} className="menu-item menuList">
                 <Care />
                 <p className="menuText">The Care Act</p>
-
             </Link>
             <Link to={'./support'} className="menu-item menuList">
                 <Support />
@@ -31,7 +37,7 @@ export default props => {
                 <Key />
                 <p className="menuText">Key Rights</p>
             </Link>
-            <Link to={'./initial-checks'} className="menu-item menuList" >
+            <Link to={'./initial-checks'} className="menu-item menuList">
                 <Application />
                 <p className="menuText">Your Application</p>
             </Link>
@@ -39,7 +45,6 @@ export default props => {
                 <Advocacy />
                 <p className="menuText">Advocacy</p>
             </Link>
-
         </Menu>
     );
 };
